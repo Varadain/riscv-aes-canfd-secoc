@@ -1,8 +1,9 @@
 __pycache__/
 *.pyc
-db/
-incremental_db/
-output_files/
+Build/
+**/db/
+**/incremental_db/
+**/output_files/
 **/can_ids_uvm_work/
 **/canfd_secoc_uvm_work/
 **/work/
@@ -21,6 +22,6 @@ transcript
 *.sof
 *.pof
 *.rbf
-ip/sensor_spi_ip/
-!evidence/
-!evidence/**
+IP/sensor_spi_ip/
+!Evidence/
+!Evidence/**

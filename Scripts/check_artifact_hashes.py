@@ -24,7 +24,7 @@ def main():
     args = parser.parse_args()
     actual = current_hashes()
     if args.write:
-        MANIFEST.write_text(json.dumps(actual, indent=2) + "\n", encoding="utf-8")
+        MANIFEST.write_bytes((json.dumps(actual, indent=2) + "\n").encode("utf-8"))
         print(f"Wrote SHA-256 hashes for {len(actual)} files.")
         return
     expected = json.loads(MANIFEST.read_text(encoding="utf-8"))

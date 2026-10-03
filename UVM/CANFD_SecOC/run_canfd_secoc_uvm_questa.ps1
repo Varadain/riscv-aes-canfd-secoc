@@ -7,10 +7,11 @@ param(
 
 $ErrorActionPreference = "Stop"
 $UvmDir = $PSScriptRoot
-$Root = Resolve-Path (Join-Path $UvmDir "..\..")
-$Work = "canfd_secoc_uvm_work"
-$LogPath = Join-Path $UvmDir "canfd_secoc_uvm_seed_${Seed}_random_${RandomTransactions}.log"
-$RefBase = Join-Path $UvmDir "secoc_cmac_ref"
+$Root = (Resolve-Path (Join-Path $UvmDir "..\..")).Path
+$BuildRoot = Join-Path $Root "Build\Questa\CANFD_SecOC"
+$Work = Join-Path $BuildRoot "work"
+$LogPath = Join-Path $BuildRoot "canfd_secoc_uvm_seed_${Seed}_random_${RandomTransactions}.log"
+$RefBase = Join-Path $BuildRoot "secoc_cmac_ref"
 
 if ($RandomTransactions -lt 4) {
     throw "RandomTransactions must be at least 4"
@@ -35,7 +36,8 @@ if (-not (Test-Path -LiteralPath $zig)) {
     throw "python-zig was not found at $zig; it is required to build the DPI reference"
 }
 
-Push-Location $Root
+New-Item -ItemType Directory -Force -Path $BuildRoot | Out-Null
+Push-Location $BuildRoot
 try {
     $zigArgs = @("cc", "-shared", "-O2", "-I$dpiInclude", "-o",
                  "$RefBase.dll", (Join-Path $UvmDir "secoc_cmac_ref.c"))
@@ -43,7 +45,12 @@ try {
     if ($LASTEXITCODE -ne 0) { throw "Failed to build SecOC CMAC DPI reference" }
 
     if (Test-Path -LiteralPath $Work) {
-        Remove-Item -LiteralPath $Work -Recurse -Force
+        $resolvedWork = [IO.Path]::GetFullPath($Work)
+        $buildPrefix = [IO.Path]::GetFullPath($BuildRoot) + [IO.Path]::DirectorySeparatorChar
+        if (-not $resolvedWork.StartsWith($buildPrefix, [StringComparison]::OrdinalIgnoreCase)) {
+            throw "Work library is outside the build directory"
+        }
+        Remove-Item -LiteralPath $resolvedWork -Recurse -Force
     }
     & $vlib $Work
     & $vmap work $Work
@@ -52,13 +59,13 @@ try {
     if ($NativeCovergroups) { $vlogArgs += "+define+NATIVE_COVERGROUPS" }
     $vlogArgs += @(
         (Join-Path $UvmDir "canfd_secoc_uvm_if.sv"),
-        (Join-Path $Root "rtl\aes128_reusable\00_aes128_top.sv"),
-        (Join-Path $Root "rtl\aes128_reusable\01_aes_sbox_rom.sv"),
-        (Join-Path $Root "rtl\aes128_reusable\02_aes_sbox_seq.sv"),
-        (Join-Path $Root "rtl\aes128_reusable\03_aes_mix_columns_seq.sv"),
-        (Join-Path $Root "rtl\aes128_reusable\04_aes_key_expand_seq.sv"),
-        (Join-Path $Root "aes128_lowpower.sv"),
-        (Join-Path $Root "canfd_secoc_mmio.sv"),
+        (Join-Path $Root "RTL\AES\Reusable\00_aes128_top.sv"),
+        (Join-Path $Root "RTL\AES\Reusable\01_aes_sbox_rom.sv"),
+        (Join-Path $Root "RTL\AES\Reusable\02_aes_sbox_seq.sv"),
+        (Join-Path $Root "RTL\AES\Reusable\03_aes_mix_columns_seq.sv"),
+        (Join-Path $Root "RTL\AES\Reusable\04_aes_key_expand_seq.sv"),
+        (Join-Path $Root "RTL\AES\aes128_lowpower.sv"),
+        (Join-Path $Root "RTL\CAN\canfd_secoc_mmio.sv"),
         (Join-Path $UvmDir "canfd_secoc_uvm_pkg.sv"),
         (Join-Path $UvmDir "canfd_secoc_uvm_tb_top.sv")
     )
@@ -67,7 +74,7 @@ try {
 
     $do = "run -all; quit"
     if ($DumpVcd) {
-        $vcd = (Join-Path $UvmDir "canfd_secoc_uvm_seed_${Seed}.vcd").Replace("\", "/")
+        $vcd = (Join-Path $BuildRoot "canfd_secoc_uvm_seed_${Seed}.vcd").Replace("\", "/")
         $do = "vcd file {$vcd}; vcd add -r /canfd_secoc_uvm_tb_top/*; run -all; vcd flush; quit"
     }
     $vsimArgs = @("-c", "-sv_seed", "$Seed", "-sv_lib", $RefBase,

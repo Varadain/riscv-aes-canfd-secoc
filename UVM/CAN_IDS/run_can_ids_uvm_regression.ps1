@@ -19,7 +19,7 @@ if ($Seeds.Count -eq 0) {
 }
 if ([string]::IsNullOrWhiteSpace($ResultsDir)) {
     $stamp = Get-Date -Format "yyyy-MM-dd_HHmmss"
-    $ResultsDir = Join-Path $RepoRoot "verification\results\${stamp}_can_ids_uvm_randomized"
+    $ResultsDir = Join-Path $RepoRoot "Build\Regressions\${stamp}_can_ids_uvm_randomized"
 }
 
 $ResultsDir = $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($ResultsDir)
@@ -36,7 +36,7 @@ $rows = foreach ($seed in $Seeds) {
 
     $null = & $Runner @runArgs
 
-    $sourceLog = Join-Path $UvmDir "can_ids_uvm_seed_${seed}_random_${RandomTransactions}.log"
+    $sourceLog = Join-Path $RepoRoot "Build\Questa\CAN_IDS\can_ids_uvm_seed_${seed}_random_${RandomTransactions}.log"
     $targetLog = Join-Path $ResultsDir (Split-Path -Leaf $sourceLog)
     Copy-Item -LiteralPath $sourceLog -Destination $targetLog -Force
     $log = Get-Content -Raw -LiteralPath $sourceLog

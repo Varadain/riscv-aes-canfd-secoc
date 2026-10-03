@@ -4,7 +4,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-EVIDENCE = ROOT / "evidence"
+EVIDENCE = ROOT / "Evidence"
 
 
 def rows(path):
@@ -29,9 +29,9 @@ def check_log(path, assertions, bins):
 
 
 def main():
-    ids_dir = EVIDENCE / "verification/can_ids_uvm"
+    ids_dir = EVIDENCE / "Verification/CAN_IDS"
     ids = rows(ids_dir / "can_ids_uvm_randomized_regression.csv")
-    secoc_dir = EVIDENCE / "verification/canfd_secoc_uvm"
+    secoc_dir = EVIDENCE / "Verification/CANFD_SecOC"
     secoc = rows(secoc_dir / "canfd_secoc_uvm_regression.csv")
     assert [int(r["Seed"]) for r in ids] == [1, 7, 19, 42, 99]
     assert [int(r["Seed"]) for r in secoc] == [1, 7, 19, 42, 99]
@@ -51,15 +51,15 @@ def main():
         text = check_log(secoc_dir / r["Log"], 5, 16)
         for field, tag in (("Total", "transactions"), ("Accepted", "accepted"), ("AuthFail", "auth_fail"), ("FreshFail", "fresh_fail")):
             assert f'{tag}={r[field]}' in text
-    full = read_text(EVIDENCE / "verification/questa_full_transcript.log")
+    full = read_text(EVIDENCE / "Verification/questa_full_transcript.log")
     assert "PASS=161 FAIL=0" in full
-    fit = read_text(EVIDENCE / "quartus/riscv_aes_advancements.fit.summary")
+    fit = read_text(EVIDENCE / "Quartus/riscv_aes_advancements.fit.summary")
     assert "22,261" in fit and re.search(r"Total registers\s*:\s*22,?113\b", fit)
-    power = read_text(EVIDENCE / "quartus/riscv_aes_advancements.pow.summary")
+    power = read_text(EVIDENCE / "Quartus/riscv_aes_advancements.pow.summary")
     assert "582.88" in power and "Low" in power
-    timing = read_text(EVIDENCE / "quartus/riscv_aes_advancements.sta.summary")
+    timing = read_text(EVIDENCE / "Quartus/riscv_aes_advancements.sta.summary")
     assert "2.429" in timing and "0.144" in timing
-    timing_report = read_text(EVIDENCE / "quartus/riscv_aes_advancements.sta.rpt")
+    timing_report = read_text(EVIDENCE / "Quartus/riscv_aes_advancements.sta.rpt")
     assert "56.91" in timing_report
     print("PASS: all ten archived UVM logs agree with the CSV aggregates; FPGA summaries agree with the manuscript.")
     print("This is an artifact consistency check, not a new simulation or synthesis run.")

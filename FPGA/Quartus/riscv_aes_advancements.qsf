@@ -43,42 +43,42 @@ set_global_assignment -name TOP_LEVEL_ENTITY riscv_aes_advancements
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 23.1STD.1
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "16:10:40  MAY 21, 2026"
 set_global_assignment -name LAST_QUARTUS_VERSION "23.1std.1 Lite Edition"
-set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY ../../Build/Quartus
 set_global_assignment -name NUM_PARALLEL_PROCESSORS 2
 set_global_assignment -name SDC_FILE riscv_aes_advancements.sdc
-set_global_assignment -name SYSTEMVERILOG_FILE riscv_aes_advancements.sv
-set_global_assignment -name SYSTEMVERILOG_FILE pc_reg.sv
-set_global_assignment -name SYSTEMVERILOG_FILE if_stage.sv
-set_global_assignment -name SYSTEMVERILOG_FILE instr_mem.sv
-set_global_assignment -name SYSTEMVERILOG_FILE id_stage.sv
-set_global_assignment -name SYSTEMVERILOG_FILE reg_file.sv
-set_global_assignment -name SYSTEMVERILOG_FILE imm_gen.sv
-set_global_assignment -name SYSTEMVERILOG_FILE control_unit.sv
-set_global_assignment -name SYSTEMVERILOG_FILE hazard_unit.sv
-set_global_assignment -name SYSTEMVERILOG_FILE forwarding_unit.sv
-set_global_assignment -name SYSTEMVERILOG_FILE ex_stage.sv
-set_global_assignment -name SYSTEMVERILOG_FILE alu.sv
-set_global_assignment -name SYSTEMVERILOG_FILE mem_stage.sv
-set_global_assignment -name SYSTEMVERILOG_FILE load_store_unit.sv
-set_global_assignment -name SYSTEMVERILOG_FILE data_mem.sv
-set_global_assignment -name SYSTEMVERILOG_FILE aes_mmio.sv
-set_global_assignment -name SYSTEMVERILOG_FILE rtl/aes128_reusable/00_aes128_top.sv
-set_global_assignment -name SYSTEMVERILOG_FILE rtl/aes128_reusable/01_aes_sbox_rom.sv
-set_global_assignment -name SYSTEMVERILOG_FILE rtl/aes128_reusable/02_aes_sbox_seq.sv
-set_global_assignment -name SYSTEMVERILOG_FILE rtl/aes128_reusable/03_aes_mix_columns_seq.sv
-set_global_assignment -name SYSTEMVERILOG_FILE rtl/aes128_reusable/04_aes_key_expand_seq.sv
-set_global_assignment -name SYSTEMVERILOG_FILE aes128_lowpower.sv
-set_global_assignment -name SYSTEMVERILOG_FILE uart_tx.sv
-set_global_assignment -name SYSTEMVERILOG_FILE uart_mmio.sv
-set_global_assignment -name SYSTEMVERILOG_FILE sensor_mmio.sv
-set_global_assignment -name SYSTEMVERILOG_FILE sensor_spi_mmio.sv
-set_global_assignment -name SYSTEMVERILOG_FILE simple_intc.sv
-set_global_assignment -name SYSTEMVERILOG_FILE dma_lite.sv
-set_global_assignment -name SYSTEMVERILOG_FILE canfd_secoc_mmio.sv
-set_global_assignment -name SYSTEMVERILOG_FILE can_ids_mmio.sv
-set_global_assignment -name SYSTEMVERILOG_FILE power_mgmt_mmio.sv
-set_global_assignment -name SYSTEMVERILOG_FILE wb_stage.sv
-set_global_assignment -name QIP_FILE ip/sensor_spi_ip/sensor_spi_ip.qip
+set_global_assignment -name SYSTEMVERILOG_FILE ../../RTL/Top/riscv_aes_advancements.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../../RTL/CPU/pc_reg.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../../RTL/CPU/if_stage.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../../RTL/CPU/instr_mem.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../../RTL/CPU/id_stage.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../../RTL/CPU/reg_file.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../../RTL/CPU/imm_gen.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../../RTL/CPU/control_unit.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../../RTL/CPU/hazard_unit.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../../RTL/CPU/forwarding_unit.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../../RTL/CPU/ex_stage.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../../RTL/CPU/alu.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../../RTL/CPU/mem_stage.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../../RTL/CPU/load_store_unit.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../../RTL/CPU/data_mem.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../../RTL/AES/aes_mmio.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../../RTL/AES/Reusable/00_aes128_top.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../../RTL/AES/Reusable/01_aes_sbox_rom.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../../RTL/AES/Reusable/02_aes_sbox_seq.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../../RTL/AES/Reusable/03_aes_mix_columns_seq.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../../RTL/AES/Reusable/04_aes_key_expand_seq.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../../RTL/AES/aes128_lowpower.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../../RTL/Peripherals/uart_tx.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../../RTL/Peripherals/uart_mmio.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../../RTL/Peripherals/sensor_mmio.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../../RTL/Peripherals/sensor_spi_mmio.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../../RTL/Peripherals/simple_intc.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../../RTL/Peripherals/dma_lite.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../../RTL/CAN/canfd_secoc_mmio.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../../RTL/CAN/can_ids_mmio.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../../RTL/Peripherals/power_mgmt_mmio.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../../RTL/CPU/wb_stage.sv
+set_global_assignment -name QIP_FILE ../../IP/sensor_spi_ip/sensor_spi_ip.qip
 set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 256
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
@@ -91,7 +91,7 @@ set_global_assignment -name EDA_SIMULATION_TOOL "<None>"
 set_global_assignment -name EDA_OUTPUT_DATA_FORMAT NONE -section_id eda_simulation
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id riscv_core_tb
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME riscv_core_tb -section_id riscv_core_tb
-set_global_assignment -name EDA_TEST_BENCH_FILE riscv_core_tb.sv -section_id riscv_core_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE ../../Testbench/riscv_core_tb.sv -section_id riscv_core_tb
 
 
 

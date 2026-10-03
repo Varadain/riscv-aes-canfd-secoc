@@ -10,7 +10,7 @@ $Root = Resolve-Path (Join-Path $UvmDir "..\..")
 $Runner = Join-Path $UvmDir "run_canfd_secoc_uvm_questa.ps1"
 if ([string]::IsNullOrWhiteSpace($ResultsDir)) {
     $stamp = Get-Date -Format "yyyy-MM-dd_HHmmss"
-    $ResultsDir = Join-Path $Root "verification\results\${stamp}_canfd_secoc_uvm"
+    $ResultsDir = Join-Path $Root "Build\Regressions\${stamp}_canfd_secoc_uvm"
 }
 $ResultsDir = $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($ResultsDir)
 New-Item -ItemType Directory -Force -Path $ResultsDir | Out-Null
@@ -21,7 +21,7 @@ $rows = foreach ($seed in $Seeds) {
     $runOutput = & powershell.exe @runArgs
     $runOutput | ForEach-Object { Write-Host $_ }
     if ($LASTEXITCODE -ne 0) { throw "UVM seed $seed failed" }
-    $source = Join-Path $UvmDir "canfd_secoc_uvm_seed_${seed}_random_${RandomTransactions}.log"
+    $source = Join-Path $Root "Build\Questa\CANFD_SecOC\canfd_secoc_uvm_seed_${seed}_random_${RandomTransactions}.log"
     $target = Join-Path $ResultsDir (Split-Path -Leaf $source)
     Copy-Item -LiteralPath $source -Destination $target -Force
     $log = Get-Content -Raw -LiteralPath $source

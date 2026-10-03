@@ -2,7 +2,7 @@
 #include <stdint.h>
 
 /* Reuse the already validated portable AES-128 C model in this repository. */
-#include "../../verification/uvm_e2e/aes_ctr_ref.c"
+#include "../ReferenceModels/aes_ctr_ref.c"
 
 static void cmac_double_bytes(const uint8_t in[16], uint8_t out[16]) {
     uint8_t carry = 0;

@@ -9,9 +9,10 @@ param(
 $ErrorActionPreference = "Stop"
 
 $UvmDir = $PSScriptRoot
-$CadenceRoot = Resolve-Path (Join-Path $UvmDir "..")
-$Work = "can_ids_uvm_work"
-$LogPath = Join-Path $UvmDir "can_ids_uvm_seed_${Seed}_random_${RandomTransactions}.log"
+$RepoRoot = (Resolve-Path (Join-Path $UvmDir "..\..")).Path
+$BuildRoot = Join-Path $RepoRoot "Build\Questa\CAN_IDS"
+$Work = Join-Path $BuildRoot "work"
+$LogPath = Join-Path $BuildRoot "can_ids_uvm_seed_${Seed}_random_${RandomTransactions}.log"
 
 if ($RandomTransactions -lt 6) {
     throw "RandomTransactions must be at least 6"
@@ -38,10 +39,16 @@ $vmap = Resolve-QuestaTool "vmap"
 $vlog = Resolve-QuestaTool "vlog"
 $vsim = Resolve-QuestaTool "vsim"
 
-Push-Location $CadenceRoot
+New-Item -ItemType Directory -Force -Path $BuildRoot | Out-Null
+Push-Location $BuildRoot
 try {
-    if (Test-Path $Work) {
-        Remove-Item -LiteralPath $Work -Recurse -Force
+    if (Test-Path -LiteralPath $Work) {
+        $resolvedWork = [IO.Path]::GetFullPath($Work)
+        $buildPrefix = [IO.Path]::GetFullPath($BuildRoot) + [IO.Path]::DirectorySeparatorChar
+        if (-not $resolvedWork.StartsWith($buildPrefix, [StringComparison]::OrdinalIgnoreCase)) {
+            throw "Work library is outside the build directory"
+        }
+        Remove-Item -LiteralPath $resolvedWork -Recurse -Force
     }
 
     & $vlib $Work
@@ -56,7 +63,7 @@ try {
     }
     $vlogArgs += @(
         (Join-Path $UvmDir "can_ids_uvm_if.sv"),
-        (Join-Path $CadenceRoot "can_ids_mmio.sv"),
+        (Join-Path $RepoRoot "RTL\CAN\can_ids_mmio.sv"),
         (Join-Path $UvmDir "can_ids_uvm_pkg.sv"),
         (Join-Path $UvmDir "can_ids_uvm_tb_top.sv")
     )
@@ -68,7 +75,7 @@ try {
     $doCmd = "run -all; quit"
     if ($DumpVcd) {
         if ([string]::IsNullOrWhiteSpace($VcdPath)) {
-            $VcdPath = Join-Path $UvmDir "can_ids_uvm_seed_${Seed}_random_${RandomTransactions}.vcd"
+            $VcdPath = Join-Path $BuildRoot "can_ids_uvm_seed_${Seed}_random_${RandomTransactions}.vcd"
         }
         $resolvedVcd = $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($VcdPath)
         $vcdForQuesta = $resolvedVcd.Replace("\", "/")

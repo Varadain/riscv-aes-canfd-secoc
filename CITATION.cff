@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "Please cite this artifact when using its RTL, verification environments, or recorded FPGA evidence."
 type: software
 title: "RISC-V Security Processor with AES, CAN-IDS, and CAN-FD/SecOC"
-version: "1.0.0"
+version: "1.1.0"
 url: "https://github.com/Varadain/riscv-aes-canfd-secoc"
 repository-code: "https://github.com/Varadain/riscv-aes-canfd-secoc"
 authors:

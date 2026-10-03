@@ -4,11 +4,10 @@ import matplotlib.pyplot as plt
 from matplotlib.patches import FancyArrowPatch, Rectangle
 
 
-ROOT = Path(__file__).resolve().parents[2]
-REPORT = ROOT / "journal_report_can_ids"
-FIGDIR = REPORT / "figures" / "generated"
-VCD_PATH = ROOT / "canfd_dma_debug.vcd"
-BUNDLE_PATH = ROOT / "cadence" / "genus_portable" / "riscv_aes_cadence_synthesis_all.sv"
+ROOT = Path(__file__).resolve().parents[1]
+FIGDIR = ROOT / "Build" / "Figures"
+VCD_PATH = ROOT / "Evidence" / "Waveforms" / "canfd_dma_debug.vcd"
+RTL_DIR = ROOT / "RTL"
 
 
 SIGNALS = {
@@ -300,10 +299,11 @@ def generate_hierarchy():
         "simple_intc",
         "power_mgmt_mmio",
     ]
-    text = BUNDLE_PATH.read_text(encoding="utf-8", errors="replace")
+    text = "\n".join(path.read_text(encoding="utf-8", errors="replace")
+                     for path in sorted(RTL_DIR.rglob("*.sv")))
     missing = [name for name in required_modules if f"module {name}" not in text]
     if missing:
-        raise RuntimeError(f"Missing expected module(s) in synthesis bundle: {missing}")
+        raise RuntimeError(f"Missing expected module(s) in public RTL: {missing}")
 
     fig, ax = plt.subplots(figsize=(11.0, 6.2))
     ax.set_xlim(0, 10)

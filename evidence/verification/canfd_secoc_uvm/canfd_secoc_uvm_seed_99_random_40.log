@@ -1,0 +1,65 @@
+# vsim -c -sv_seed 99 -sv_lib D:\mtech\sem 4\midesm presetation\riscv_aes_advancements\risc_aes_custom_ISA\cadence\uvm_canfd_secoc\secoc_cmac_ref -l D:\mtech\sem 4\midesm presetation\riscv_aes_advancements\risc_aes_custom_ISA\cadence\uvm_canfd_secoc\canfd_secoc_uvm_seed_99_random_40.log work.canfd_secoc_uvm_tb_top -do "run -all; quit" "+UVM_TESTNAME=canfd_secoc_uvm_test" "+UVM_VERBOSITY=UVM_NONE" "+RANDOM_TXNS=40" "+CANFD_SEED=99" 
+# Start time: 00:36:49 on Jul 16,2026
+# ** Note: (vsim-3812) Design is being optimized...
+# //  Questa Intel Starter FPGA Edition-64
+# //  Version 2023.3 win64 Jul 17 2023
+# //
+# //  Copyright 1991-2023 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.canfd_secoc_uvm_if(fast)
+# Loading mtiUvm.uvm_pkg(fast)
+# Loading work.canfd_secoc_uvm_pkg(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading work.canfd_secoc_uvm_tb_top(fast)
+# Loading D:\mtech\sem 4\midesm presetation\riscv_aes_advancements\risc_aes_custom_ISA\cadence\uvm_canfd_secoc\secoc_cmac_ref.dll
+# Loading C:/intelFPGA_lite/questa_fse/uvm-1.1d\win64\uvm_dpi.dll
+# run -all
+# ----------------------------------------------------------------
+# UVM-1.1d
+# (C) 2007-2013 Mentor Graphics Corporation
+# (C) 2007-2013 Cadence Design Systems, Inc.
+# (C) 2006-2013 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO D:\mtech\sem 4\midesm presetation\riscv_aes_advancements\risc_aes_custom_ISA\cadence\uvm_canfd_secoc\canfd_secoc_uvm_pkg.sv(502) @ 1009500000: uvm_test_top.env.coverage [CANFD_COVERAGE] Portable CAN-FD/SecOC functional coverage: 100.00% (16/16 bins) from 46 transactions
+# UVM_INFO D:\mtech\sem 4\midesm presetation\riscv_aes_advancements\risc_aes_custom_ISA\cadence\uvm_canfd_secoc\canfd_secoc_uvm_pkg.sv(505) @ 1009500000: uvm_test_top.env.coverage [CANFD_ASSERTIONS] Concurrent assertions=5 failures=0 cover hits=34
+# UVM_INFO D:\mtech\sem 4\midesm presetation\riscv_aes_advancements\risc_aes_custom_ISA\cadence\uvm_canfd_secoc\canfd_secoc_uvm_pkg.sv(406) @ 1009500000: uvm_test_top.env.scoreboard [CANFD_SCOREBOARD] CAN-FD/SecOC scoreboard transactions=46 randomized=40 accepted=23 auth_fail=11 fresh_fail=12 mismatches=0
+# 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :    3
+# UVM_WARNING :    0
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [CANFD_ASSERTIONS]     1
+# [CANFD_COVERAGE]     1
+# [CANFD_SCOREBOARD]     1
+# ** Note: $finish    : C:/intelFPGA_lite/questa_fse/win64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
+#    Time: 1009500 ns  Iteration: 61  Instance: /canfd_secoc_uvm_tb_top
+# End time: 00:37:08 on Jul 16,2026, Elapsed time: 0:00:19
+# Errors: 0, Warnings: 0

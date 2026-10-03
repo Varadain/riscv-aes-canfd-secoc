@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "Please cite this artifact when using its RTL, verification environments, or recorded FPGA evidence."
+type: software
+title: "RISC-V Security Processor with AES, CAN-IDS, and CAN-FD/SecOC"
+version: "1.0.0"
+url: "https://github.com/Varadain/riscv-aes-canfd-secoc"
+repository-code: "https://github.com/Varadain/riscv-aes-canfd-secoc"
+authors:
+  - family-names: "Inamdar"
+    given-names: "Varada Pravin"
+    orcid: "https://orcid.org/0009-0000-9636-8309"
+  - family-names: "Kulkarni"
+    given-names: "Ashwini"
+    orcid: "https://orcid.org/0000-0003-4456-7415"
+  - family-names: "Deshpande"
+    given-names: "Advay Anand"
+    orcid: "https://orcid.org/0009-0000-7821-7275"
+  - family-names: "Joshi"
+    given-names: "Anish Anay"
+    orcid: "https://orcid.org/0009-0006-3021-6699"
+  - family-names: "Joshi"
+    given-names: "Vibhakar Vishnu"
+    orcid: "https://orcid.org/0009-0000-3334-4609"

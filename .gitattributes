@@ -1,0 +1,2 @@
+# Keep the archived evidence and extracted RTL byte-identical across checkouts.
+* -text

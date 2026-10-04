@@ -1,0 +1,92 @@
+# vsim -c -t 1ps -voptargs="+acc" -l D:\mtech\sem 4\midesm presetation\riscv_aes_advancements\risc_aes_custom_ISA\journal_report_can_ids\github_full_validation_20261003\Build\Questa\Processor\processor_CanFdSecoc.log work.riscv_core_tb "+CANFD_SECOC_ONLY" -do "run -all; quit -f" 
+# Start time: 19:39:55 on Oct 03,2026
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# //  Questa Intel Starter FPGA Edition-64
+# //  Version 2023.3 win64 Jul 17 2023
+# //
+# //  Copyright 1991-2023 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.riscv_core_tb(fast)
+# Loading work.riscv_aes_advancements(fast)
+# Loading work.pc_reg(fast)
+# Loading work.if_stage(fast)
+# Loading work.instr_mem(fast)
+# Loading work.id_stage(fast)
+# Loading work.reg_file(fast)
+# Loading work.imm_gen(fast)
+# Loading work.control_unit(fast)
+# Loading work.hazard_unit(fast)
+# Loading work.forwarding_unit(fast)
+# Loading work.ex_stage(fast)
+# Loading work.alu(fast)
+# Loading work.mem_stage(fast)
+# Loading work.load_store_unit(fast)
+# Loading work.data_mem(fast)
+# Loading work.aes_mmio(fast)
+# Loading work.aes128_lowpower(fast)
+# Loading work.AES128_updated_new(fast)
+# Loading work.AES_SBOX_SEQ(fast)
+# Loading work.AES_SBOX_ROM(fast)
+# Loading work.AES_MIXCOL_SEQ(fast)
+# Loading work.AES_KEYEXP_SEQ(fast)
+# Loading work.sensor_spi_mmio(fast)
+# Loading work.sensor_spi_ip(fast)
+# Loading work.uart_mmio(fast)
+# Loading work.uart_tx(fast)
+# Loading work.simple_intc(fast)
+# Loading work.dma_lite(fast)
+# Loading work.canfd_secoc_mmio(fast)
+# Loading work.aes128_lowpower(fast__1)
+# Loading work.AES128_updated_new(fast__1)
+# Loading work.can_ids_mmio(fast)
+# Loading work.power_mgmt_mmio(fast)
+# Loading work.wb_stage(fast)
+# Loading work.can_ids_mmio(fast__1)
+# Loading work.aes_mmio(fast__1)
+# Loading work.mem_stage(fast__1)
+# Loading work.aes_mmio(fast__2)
+# Loading work.sensor_spi_mmio(fast__1)
+# Loading work.uart_mmio(fast__1)
+# Loading work.dma_lite(fast__1)
+# Loading work.power_mgmt_mmio(fast__1)
+# run -all
+# 
+# === CAN-FD FIFO/DMA and SecOC integration tests ===
+# [CAN-FD] TX_FIFO: protected frame reached TX FIFO -> got=0x00000001 expected=0x00000001 -> PASS
+# [SECOC] AUTH_ACCEPT: valid MAC and freshness accepted -> got=0x00000001 expected=0x00000001 -> PASS
+# [CAN-FD] DMA_RECORD: one authenticated RX record completed -> got=0x00000001 expected=0x00000001 -> PASS
+# [CAN-FD] DMA_ID: DMA descriptor stores CAN identifier -> got=0x00000145 expected=0x00000145 -> PASS
+# [CAN-FD] DMA_FLAGS: DMA descriptor stores FD/BRS/DLC flags -> got=0x0000006f expected=0x0000006f -> PASS
+# [SECOC] DMA_FRESH: DMA descriptor stores freshness value -> got=0x00000001 expected=0x00000001 -> PASS
+# [CAN-FD] DMA_PAYLOAD: DMA record stores payload word zero -> got=0x12345678 expected=0x12345678 -> PASS
+# [CAN-IDS] AUTH_HANDOFF: authenticated FD frame reached IDS -> got=0x00000001 expected=0x00000001 -> PASS
+# [CAN-IDS] FD_DLC: legal FD DLC is classified normally -> got=0x00000001 expected=0x00000001 -> PASS
+# [INTC] CANFD_PENDING: CAN-FD/SecOC event captured in bit 5 -> got=0x00000020 expected=0x00000020 -> PASS
+# [INTC] CANFD_IRQ: enabled CAN-FD interrupt asserts IRQ line -> got=0x00000001 expected=0x00000001 -> PASS
+# [SECOC] REPLAY_REJECT: stale freshness is rejected -> got=0x00000001 expected=0x00000001 -> PASS
+# [SECOC] MAC_REJECT: incorrect MAC is rejected -> got=0x00000001 expected=0x00000001 -> PASS
+# [SECOC] NO_RELEASE: rejected frames do not increase accepts -> got=0x00000001 expected=0x00000001 -> PASS
+# [CAN-IDS] NO_UNTRUSTED_IDS: rejected frames never reach IDS -> got=0x00000001 expected=0x00000001 -> PASS
+# [CAN-FD] NO_UNTRUSTED_DMA: rejected frames never reach DMA -> got=0x00000001 expected=0x00000001 -> PASS
+# [SECOC] KEY_HIDE: locked SecOC key readback is zero -> got=0x00000000 expected=0x00000000 -> PASS
+# 
+# ================================================
+# RV32I-style directed verification summary: PASS=17 FAIL=0
+# Lightweight IoT Security Processor + Custom ISA verification summary: PASS=17 FAIL=0
+# ================================================
+# 
+# ALL TESTS PASSED
+# ** Note: $finish    : D:/mtech/sem 4/midesm presetation/riscv_aes_advancements/risc_aes_custom_ISA/journal_report_can_ids/github_full_validation_20261003/Testbench/riscv_core_tb.sv(2015)
+#    Time: 72045 ns  Iteration: 0  Instance: /riscv_core_tb
+# End time: 19:40:05 on Oct 03,2026, Elapsed time: 0:00:10
+# Errors: 0, Warnings: 0

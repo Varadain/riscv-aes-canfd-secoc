@@ -21,6 +21,7 @@ Testbench/             Directed full-SoC testbench
 FPGA/Quartus/          FPGA project files and timing constraints
 Scripts/               Evidence checks, hashes, and figure generation
 Evidence/
+  2026-10-03/          Fresh full regressions and FPGA flow; exact input provenance
   Verification/        Recorded UVM logs, CSV summaries, and directed results
   Quartus/             Recorded FPGA implementation reports
   Waveforms/           Recorded receive/DMA VCD
@@ -57,22 +58,23 @@ The top module is `RTL/Top/riscv_aes_advancements.sv`. Its five-stage pipeline r
 | `0x0900` | CAN-IDS | Identifier/payload/timing rules and alert counters |
 | `0x0A00` | CAN-FD / SecOC | Four-entry TX/RX FIFOs, CMAC, freshness, authenticated RX DMA |
 
-The trusted receive path is CAN-FD/SecOC verification, followed by IDS screening and RX DMA. A rejected frame raises a security event but is not released to either IDS or DMA. The IDS examines the first eight payload bytes; the fixed CMAC profile authenticates all 64 payload bytes.
+With SecOC checking enabled and a provisioned key, receive verification releases an accepted frame to IDS screening and optional RX DMA in parallel. IDS classification is not a DMA authorization gate. A rejected frame is not released to either path. Software can bypass SecOC checking with control bit 8 at `0x0A00`; this prototype assumes trusted configuration. The IDS examines only the low 11 identifier bits and first eight payload bytes; the fixed CMAC profile authenticates the complete 29-bit identifier and all 64 stored payload bytes.
 
 ## Evidence and scope
 
-The reported five-seed runs and FPGA results were recorded on 16 July 2026. Their archived files remain unchanged. The original 33-source synthesis bundle has SHA-256 `9fc6ee8605a86637b84872689ffb0b2c9dbc4285f4f7121932f2b5d5bf461157`. The public RTL was extracted from that exact bundle except for the vendor-generated SPI core.
+The complete verification and FPGA flow were repeated on 3 October 2026 from a fresh v1.1.0 checkout, commit `e31227ddf8db7af6dcc089848dd589938981cbe0`. No previous build database was copied. The new reports, ten seeded UVM transcripts, four processor-test modes, VCD, input hashes, and tool versions are in [Evidence/2026-10-03](Evidence/2026-10-03/). Read [the fresh validation record](Docs/FRESH_VALIDATION_20261003.md) for commands and limitations.
 
-For the organized v1.1.0 layout, seed 1 was rerun in both focused UVM environments: 209 CAN-IDS transactions and 46 CAN-FD/SecOC transactions passed with no scoreboard or assertion failures. These path/dependency checks do not constitute a new full-SoC regression or FPGA synthesis campaign.
+The older July evidence remains unchanged for historical traceability. Its original 33-source synthesis bundle has SHA-256 `9fc6ee8605a86637b84872689ffb0b2c9dbc4285f4f7121932f2b5d5bf461157`. The public RTL was extracted from that bundle except for the restricted vendor SPI core. The October campaign uses the modular public sources with that SPI dependency supplied locally.
 
 - Directed SoC checks: 161 passed, 0 failed.
+- Additional modes: SecurityExtension 36/0, CanFdSecoc 17/0, FullSocScenario 18/0. These modes overlap; their counts should not be added as independent coverage.
 - CAN-IDS UVM: seeds 1, 7, 19, 42, 99; 209 transactions each; 38/38 portable bins.
 - CAN-FD/SecOC UVM: the same five seeds; 46 transactions each; 16/16 portable bins.
 - FPGA: Cyclone V `5CGXFC7C7F23C8`, Quartus 23.1, 50 MHz target.
 - Utilization: 22,261 ALMs, 22,113 registers; maximum frequency 56.91 MHz.
 - Vectorless power: 582.88 mW, low confidence; not measured board power.
 
-The CAN-FD security controller accepts frame-level transactions; it is not an ISO 11898 MAC/PHY. The fixed SecOC-style profile is not a complete AUTOSAR stack. IDS labels are generated verification labels, not a field-dataset accuracy evaluation. Questa Starter Edition used UVM components, seeded procedural stimulus, portable bin collectors, and concurrent assertions; native solver/covergroup closure is not claimed.
+The CAN-FD security controller accepts MMIO frame descriptors; it is not an ISO 11898 MAC/PHY and no physical CAN bus was tested. The fixed SecOC-style profile is not a complete AUTOSAR stack. The 32-bit freshness and 64-bit tag are separate descriptor fields: packing them with 64 application bytes would exceed a single CAN-FD frame. Neither fragmentation nor a 52-byte application-payload wire mapping is implemented. Replay state is volatile, global to the RX path, and resets with the design. IDS labels are generated verification labels, not a field-dataset accuracy evaluation. Questa Starter Edition used UVM components, seeded procedural stimulus, portable bin collectors, and concurrent assertions; native solver/covergroup closure is not claimed.
 
 ## Files
 
@@ -105,9 +107,21 @@ Open `FPGA/Quartus/riscv_aes_advancements.qpf`. Its QSF references this external
 
 The SoC testbench is `Testbench/riscv_core_tb.sv`. Compile the design sources from the QSF and the regenerated SPI model with `vlog -sv`, then run `work.riscv_core_tb` to completion. The monolithic restricted-IP bundle, commercial libraries, simulator binaries, FPGA bitstream, and ASIC files are not included.
 
+After providing the local SPI model, the checked runner invokes all four processor modes and rejects simulation logs containing failed checks:
+
+```powershell
+& ./Scripts/run_processor_integration_questa.ps1 -DumpCanFdWaveform
+```
+
 ## Visualization
 
 `Scripts/create_project_figures.py` uses Python and Matplotlib, reads the archived VCD and public RTL, and writes figures under `Build/Figures/`. Run `python Scripts/create_project_figures.py` after installing its plotting dependency. Plot generation does not replace simulation or synthesis.
+
+The original figure script retains the July waveform for historical reproduction. For the October waveform, use `Scripts/render_current_waveform.py`, which resolves the exercised signal names from VCD hierarchy rather than fixed aliases:
+
+```powershell
+python Scripts/render_current_waveform.py Evidence/2026-10-03/Waveforms/canfd_dma_debug.vcd Build/Figures/questa_canfd_secoc_dma_waveform
+```
 
 ## Related work and publication
 

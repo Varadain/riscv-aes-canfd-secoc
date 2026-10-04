@@ -1,4 +1,7 @@
+import argparse
 import csv
+import hashlib
+import json
 import re
 from pathlib import Path
 
@@ -29,6 +32,15 @@ def check_log(path, assertions, bins):
 
 
 def main():
+    global EVIDENCE
+    parser = argparse.ArgumentParser(description="Check archived evidence without running EDA tools.")
+    parser.add_argument("--date", choices=("2026-07-16", "2026-10-03"), default="2026-10-03")
+    args = parser.parse_args()
+    if args.date == "2026-10-03":
+        EVIDENCE = EVIDENCE / args.date
+        manifest = json.loads((EVIDENCE / "SHA256SUMS.json").read_text(encoding="utf-8"))
+        for name, expected_hash in manifest.items():
+            assert hashlib.sha256((EVIDENCE / name).read_bytes()).hexdigest() == expected_hash, name
     ids_dir = EVIDENCE / "Verification/CAN_IDS"
     ids = rows(ids_dir / "can_ids_uvm_randomized_regression.csv")
     secoc_dir = EVIDENCE / "Verification/CANFD_SecOC"
@@ -51,8 +63,14 @@ def main():
         text = check_log(secoc_dir / r["Log"], 5, 16)
         for field, tag in (("Total", "transactions"), ("Accepted", "accepted"), ("AuthFail", "auth_fail"), ("FreshFail", "fresh_fail")):
             assert f'{tag}={r[field]}' in text
-    full = read_text(EVIDENCE / "Verification/questa_full_transcript.log")
+    full_path = "Verification/Processor/processor_All.log" if args.date == "2026-10-03" else "Verification/questa_full_transcript.log"
+    full = read_text(EVIDENCE / full_path)
     assert "PASS=161 FAIL=0" in full
+    if args.date == "2026-10-03":
+        for mode, count in (("SecurityExtension", 36), ("CanFdSecoc", 17), ("FullSocScenario", 18)):
+            log = read_text(EVIDENCE / f"Verification/Processor/processor_{mode}.log")
+            assert f"PASS={count} FAIL=0" in log
+            assert not re.search(r"\*\* (?:Error|Fatal):|UI-Msg \(Error\)", log)
     fit = read_text(EVIDENCE / "Quartus/riscv_aes_advancements.fit.summary")
     assert "22,261" in fit and re.search(r"Total registers\s*:\s*22,?113\b", fit)
     power = read_text(EVIDENCE / "Quartus/riscv_aes_advancements.pow.summary")

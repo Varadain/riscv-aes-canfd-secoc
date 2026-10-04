@@ -1,0 +1,10 @@
+CAN-FD/SecOC UVM constrained-random regression
+Seeds=1,7,19,42,99
+DirectedPerSeed=6
+RandomizedPerSeed=40
+TotalRandomized=200
+TotalTransactions=230
+CoverageBins=16/16 per seed
+ConcurrentAssertions=5
+AssertionFailures=0
+CSV=canfd_secoc_uvm_regression.csv

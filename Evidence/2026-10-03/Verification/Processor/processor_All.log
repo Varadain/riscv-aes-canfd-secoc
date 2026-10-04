@@ -1,0 +1,286 @@
+# vsim -c -t 1ps -voptargs="+acc" -l D:\mtech\sem 4\midesm presetation\riscv_aes_advancements\risc_aes_custom_ISA\journal_report_can_ids\github_full_validation_20261003\Build\Questa\Processor\processor_All.log work.riscv_core_tb -do "run -all; quit -f" 
+# Start time: 19:27:47 on Oct 03,2026
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# //  Questa Intel Starter FPGA Edition-64
+# //  Version 2023.3 win64 Jul 17 2023
+# //
+# //  Copyright 1991-2023 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.riscv_core_tb(fast)
+# Loading work.riscv_aes_advancements(fast)
+# Loading work.pc_reg(fast)
+# Loading work.if_stage(fast)
+# Loading work.instr_mem(fast)
+# Loading work.id_stage(fast)
+# Loading work.reg_file(fast)
+# Loading work.imm_gen(fast)
+# Loading work.control_unit(fast)
+# Loading work.hazard_unit(fast)
+# Loading work.forwarding_unit(fast)
+# Loading work.ex_stage(fast)
+# Loading work.alu(fast)
+# Loading work.mem_stage(fast)
+# Loading work.load_store_unit(fast)
+# Loading work.data_mem(fast)
+# Loading work.aes_mmio(fast)
+# Loading work.aes128_lowpower(fast)
+# Loading work.AES128_updated_new(fast)
+# Loading work.AES_SBOX_SEQ(fast)
+# Loading work.AES_SBOX_ROM(fast)
+# Loading work.AES_MIXCOL_SEQ(fast)
+# Loading work.AES_KEYEXP_SEQ(fast)
+# Loading work.sensor_spi_mmio(fast)
+# Loading work.sensor_spi_ip(fast)
+# Loading work.uart_mmio(fast)
+# Loading work.uart_tx(fast)
+# Loading work.simple_intc(fast)
+# Loading work.dma_lite(fast)
+# Loading work.canfd_secoc_mmio(fast)
+# Loading work.aes128_lowpower(fast__1)
+# Loading work.AES128_updated_new(fast__1)
+# Loading work.can_ids_mmio(fast)
+# Loading work.power_mgmt_mmio(fast)
+# Loading work.wb_stage(fast)
+# Loading work.can_ids_mmio(fast__1)
+# Loading work.aes_mmio(fast__1)
+# Loading work.mem_stage(fast__1)
+# Loading work.aes_mmio(fast__2)
+# Loading work.sensor_spi_mmio(fast__1)
+# Loading work.uart_mmio(fast__1)
+# Loading work.dma_lite(fast__1)
+# Loading work.power_mgmt_mmio(fast__1)
+# run -all
+# 
+# === R-type tests ===
+# [R-TYPE] ADD: x3 = x1 + x2; 20 + 6 = 26 -> got=0x0000001a expected=0x0000001a -> PASS
+# [R-TYPE] SUB: x4 = x1 - x2; 20 - 6 = 14 -> got=0x0000000e expected=0x0000000e -> PASS
+# [R-TYPE] SLL: x5 = x1 << x2[4:0]; 20 << 6 = 1280 -> got=0x00000500 expected=0x00000500 -> PASS
+# [R-TYPE] SLT: x6 = (x2 < x1) signed; 6<20 => 1 -> got=0x00000001 expected=0x00000001 -> PASS
+# [R-TYPE] SLTU: x7 = (x2 < x1) unsigned; 6<20 =>1 -> got=0x00000001 expected=0x00000001 -> PASS
+# [R-TYPE] XOR: x8 = x1 ^ x2; 0x14 ^ 0x06 = 0x12 -> got=0x00000012 expected=0x00000012 -> PASS
+# [R-TYPE] SRL: x9 = x1 >> x2[4:0]; 20 >> 6 = 0 -> got=0x00000000 expected=0x00000000 -> PASS
+# [R-TYPE] SRA: x10 = x1 >>> x2[4:0]; 20>>>6 = 0 -> got=0x00000000 expected=0x00000000 -> PASS
+# [R-TYPE] OR: x11 = x1 | x2; 0x14 | 0x06 = 0x16 -> got=0x00000016 expected=0x00000016 -> PASS
+# [R-TYPE] AND: x12 = x1 & x2; 0x14 & 0x06 = 0x04 -> got=0x00000004 expected=0x00000004 -> PASS
+# 
+# === I-type tests ===
+# [I-TYPE] ADDI: x1 = x0 + 9; 0 + 9 = 9 -> got=0x00000009 expected=0x00000009 -> PASS
+# [I-TYPE] SLTI: x2 = (x1 < 7) signed; 9<7 => 0 -> got=0x00000000 expected=0x00000000 -> PASS
+# [I-TYPE] SLTIU: x3 = (x1 < 7) unsigned; 9<7 => 0 -> got=0x00000000 expected=0x00000000 -> PASS
+# [I-TYPE] XORI: x4 = x1 ^ 0xF0; 0x09^0xF0 = 0xF9 -> got=0x000000f9 expected=0x000000f9 -> PASS
+# [I-TYPE] ORI: x5 = x1 | 0x3; 0x09|0x03 = 0x0B -> got=0x0000000b expected=0x0000000b -> PASS
+# [I-TYPE] ANDI: x6 = x1 & 0x3; 0x09&0x03 = 0x01 -> got=0x00000001 expected=0x00000001 -> PASS
+# [I-TYPE] SLLI: x7 = x1 << 2; 9 << 2 = 36 -> got=0x00000024 expected=0x00000024 -> PASS
+# [I-TYPE] SRLI: x8 = x1 >> 1; 9 >> 1 = 4 -> got=0x00000004 expected=0x00000004 -> PASS
+# [I-TYPE] SRAI: x9 = x1 >>> 1; 9 >>> 1 = 4 -> got=0x00000004 expected=0x00000004 -> PASS
+# 
+# === S-type/I-type load-store tests ===
+# [I-TYPE] LB: x2 = signext(mem8[0]);  0xDD -> 0xFFFFFFDD -> got=0xffffffdd expected=0xffffffdd -> PASS
+# [I-TYPE] LH: x3 = signext(mem16[0]); 0xCCDD -> 0xFFFFCCDD -> got=0xffffccdd expected=0xffffccdd -> PASS
+# [I-TYPE] LW: x4 = mem32[0]; 0xAABBCCDD -> got=0xaabbccdd expected=0xaabbccdd -> PASS
+# [I-TYPE] LBU: x5 = zeroext(mem8[0]); 0xDD -> 0x000000DD -> got=0x000000dd expected=0x000000dd -> PASS
+# [I-TYPE] LHU: x6 = zeroext(mem16[0]);0xCCDD->0x0000CCDD -> got=0x0000ccdd expected=0x0000ccdd -> PASS
+# [S-TYPE] SB: mem8 [4]  = x7[7:0];  0x55 -> got=0x00000055 expected=0x00000055 -> PASS
+# [S-TYPE] SH: mem16[8]  = x7[15:0]; 0x0055 -> got=0x00000055 expected=0x00000055 -> PASS
+# [S-TYPE] SW: mem32[12] = x7;       0x00000055 -> got=0x00000055 expected=0x00000055 -> PASS
+# 
+# === B-type tests ===
+# [B-TYPE] BEQ: x1==x2? 1==2 false -> fall-through -> got=0x00000001 expected=0x00000001 -> PASS
+# [B-TYPE] BNE: x1!=x2? 1!=2 true  -> branch -> got=0x00000000 expected=0x00000000 -> PASS
+# [B-TYPE] BLT: x1<x2 signed? 1<2 true -> branch -> got=0x00000000 expected=0x00000000 -> PASS
+# [B-TYPE] BGE: x1>=x2 signed? 1>=2 false -> got=0x00000001 expected=0x00000001 -> PASS
+# [B-TYPE] BLTU: x1<x2 unsigned? 1<2 true -> branch -> got=0x00000000 expected=0x00000000 -> PASS
+# [B-TYPE] BGEU: x1>=x2 unsigned? 1>=2 false -> got=0x00000001 expected=0x00000001 -> PASS
+# 
+# === U-type and J-type tests ===
+# [U-TYPE] LUI: x1 = 0x12345 << 12 = 0x12345000 -> got=0x12345000 expected=0x12345000 -> PASS
+# [U-TYPE] AUIPC: x2 = PC(0x4) + 0x00010<<12 = 0x00010004 -> got=0x00010004 expected=0x00010004 -> PASS
+# [J-TYPE] JAL: x3 = return addr (PC+4) = 12 -> got=0x0000000c expected=0x0000000c -> PASS
+# [J-TYPE] JALR: x6 = return addr (PC+4) = 24 -> got=0x00000018 expected=0x00000018 -> PASS
+# 
+# === SYSTEM/FENCE/PSEUDO tests ===
+# [SYSTEM] ECALL: environment call; sentinel x29 remains 7 -> got=0x00000007 expected=0x00000007 -> PASS
+# [SYSTEM] EBREAK: breakpoint; sentinel x29 remains 7 -> got=0x00000007 expected=0x00000007 -> PASS
+# [FENCE] FENCE: memory ordering barrier; sentinel x31=5 -> got=0x00000005 expected=0x00000005 -> PASS
+# [FENCE] FENCE.I: instruction barrier; sentinel x31=5 -> got=0x00000005 expected=0x00000005 -> PASS
+# [I-TYPE] NOP: addi x0,x0,0 leaves x0=0 -> got=0x00000000 expected=0x00000000 -> PASS
+# [I-TYPE] MV: x8 = x5 + 0; 2 -> 2 -> got=0x00000002 expected=0x00000002 -> PASS
+# [I-TYPE] LI: x9 = 9 -> got=0x00000009 expected=0x00000009 -> PASS
+# [J-TYPE] J: jump skips x27 write; x27 stays 0 -> got=0x00000000 expected=0x00000000 -> PASS
+# [J-TYPE] J: jump target executes x28=1 -> got=0x00000001 expected=0x00000001 -> PASS
+# [I-TYPE] NOP2: addi x11,x10,0 with x10=0 -> x11=0 -> got=0x00000000 expected=0x00000000 -> PASS
+# 
+# === AES-128 NIST MMIO tests ===
+# [AES] DONE: iterative reusable AES completed -> got=0x00000001 expected=0x00000001 -> PASS
+# [AES] BUSY: busy deasserted after completion -> got=0x00000000 expected=0x00000000 -> PASS
+# [AES] CT0: ciphertext[31:0] -> got=0x70b4c55a expected=0x70b4c55a -> PASS
+# [AES] CT1: ciphertext[63:32] -> got=0xd8cdb780 expected=0xd8cdb780 -> PASS
+# [AES] CT2: ciphertext[95:64] -> got=0x6a7b0430 expected=0x6a7b0430 -> PASS
+# [AES] CT3: ciphertext[127:96] -> got=0x69c4e0d8 expected=0x69c4e0d8 -> PASS
+# 
+# === AES-CTR tests ===
+# [AES-CTR] DONE: iterative reusable AES completed -> got=0x00000001 expected=0x00000001 -> PASS
+# [AES-CTR] CT0: zero plaintext XOR keystream[31:0] -> got=0x70b4c55a expected=0x70b4c55a -> PASS
+# [AES-CTR] CT1: zero plaintext XOR keystream[63:32] -> got=0xd8cdb780 expected=0xd8cdb780 -> PASS
+# [AES-CTR] CT2: zero plaintext XOR keystream[95:64] -> got=0x6a7b0430 expected=0x6a7b0430 -> PASS
+# [AES-CTR] CT3: zero plaintext XOR keystream[127:96] -> got=0x69c4e0d8 expected=0x69c4e0d8 -> PASS
+# [AES-CTR] COUNT: counter auto-incremented -> got=0xccddef00 expected=0xccddef00 -> PASS
+# 
+# === Sensor MMIO tests ===
+# [SENSOR] DATA: sensor data read through MMIO -> got=0x12345678 expected=0x12345678 -> PASS
+# [SENSOR] STATUS: status register is readable -> got=0x00000000 expected=0x00000000 -> PASS
+# 
+# === Sensor SPI IP tests ===
+# [SPI-IP] SCLK: Intel SPI IP generated serial clock activity -> got=0x00000001 expected=0x00000001 -> PASS
+# [SPI-IP] SS_N: slave select asserted by SPI control -> got=0x00000000 expected=0x00000000 -> PASS
+# 
+# === UART MMIO tests ===
+# [UART] DONE: TX done after MMIO write -> got=0x00000001 expected=0x00000001 -> PASS
+# [UART] BUSY: TX no longer busy -> got=0x00000000 expected=0x00000000 -> PASS
+# 
+# === End-to-end AES-CTR UART print/decrypt tests ===
+# [E2E] ENC_DONE: AES-CTR encryption completed -> got=0x00000001 expected=0x00000001 -> PASS
+# [E2E] CT_DIFF: ciphertext differs from plaintext -> got=0x00000001 expected=0x00000001 -> PASS
+# [E2E] DEC_MATCH: AES-CTR decrypted data matches original input -> got=0x53393721 expected=0x53393721 -> PASS
+# UART transcript below is emitted through the RTL UART transmitter:
+# UART_PRINT: INPUT=4845414C54485F485237385F53393721 KEY=000102030405060708090A0B0C0D0E0F CIPHER=2181A1943E335B788AFA8FDF238DF27B DECRYPTED=4845414C54485F485237385F53393721 MATCH=PASS
+# [E2E] UART_DONE: UART completed final transcript byte -> got=0x00000001 expected=0x00000001 -> PASS
+# 
+# === Interrupt controller tests ===
+# [INTC] PENDING: sensor-ready pending bit observed -> got=0x00000004 expected=0x00000004 -> PASS
+# [INTC] IRQ: combined irq line asserted when enabled -> got=0x00000001 expected=0x00000001 -> PASS
+# 
+# === DMA-lite tests ===
+# [DMA] COPY: ram[4] copied to ram[5] -> got=0xdeadbeef expected=0xdeadbeef -> PASS
+# [DMA] DONE: done flag asserted -> got=0x00000001 expected=0x00000001 -> PASS
+# 
+# === Automotive CAN-IDS MMIO tests ===
+# [CAN-IDS] NORMAL: allowed frame is classified normal -> got=0x00000030 expected=0x00000030 -> PASS
+# [CAN-IDS] DOS: ID 0x000 and zero payload raise DoS alert -> got=0x00000073 expected=0x00000073 -> PASS
+# [CAN-IDS] FUZZY: non-allowlisted ID raises fuzzy alert -> got=0x00000075 expected=0x00000075 -> PASS
+# [CAN-IDS] SPOOF: engine ID with spoof payload raises alert -> got=0x00000077 expected=0x00000077 -> PASS
+# [CAN-IDS] NORMAL_COUNT: one normal frame counted -> got=0x00000001 expected=0x00000001 -> PASS
+# [CAN-IDS] ATTACK_COUNT: three attacks counted -> got=0x00000003 expected=0x00000003 -> PASS
+# [CAN-IDS] DOS_COUNT: one DoS frame counted -> got=0x00000001 expected=0x00000001 -> PASS
+# [CAN-IDS] FUZZY_COUNT: one fuzzy frame counted -> got=0x00000001 expected=0x00000001 -> PASS
+# [CAN-IDS] SPOOF_COUNT: one spoof frame counted -> got=0x00000001 expected=0x00000001 -> PASS
+# [CAN-IDS] TOTAL_COUNT: four submitted frames counted -> got=0x00000004 expected=0x00000004 -> PASS
+# [CAN-IDS] LAST_ID: last attack ID is engine ECU 0x0C3 -> got=0x000000c3 expected=0x000000c3 -> PASS
+# [CAN-IDS] IRQ_PENDING: IDS interrupt captured in INTC bit 4 -> got=0x00000010 expected=0x00000010 -> PASS
+# [CAN-IDS] IRQ_LINE: enabled IDS interrupt asserts combined line -> got=0x00000001 expected=0x00000001 -> PASS
+# [CAN-IDS] ALERT_DEBUG: top-level IDS alert remains observable -> got=0x00000001 expected=0x00000001 -> PASS
+# [CAN-IDS] ACTIVITY: four classification cycles reached power monitor -> got=0x00000001 expected=0x00000001 -> PASS
+# 
+# === AES secure key and nonce-management tests ===
+# [AES-SEC] KEY_VALID: all four key words recorded -> got=0x0000000f expected=0x0000000f -> PASS
+# [AES-SEC] KEY_LOCK: key lock is asserted -> got=0x00000001 expected=0x00000001 -> PASS
+# [AES-SEC] WRITE_BLOCK: locked key word cannot be overwritten -> got=0x0c0d0e0f expected=0x0c0d0e0f -> PASS
+# [AES-SEC] READ_HIDE: locked key readback returns zero -> got=0x00000000 expected=0x00000000 -> PASS
+# [AES-SEC] CTR_DONE: first protected CTR block completes -> got=0x00000001 expected=0x00000001 -> PASS
+# [AES-SEC] COUNTER: counter auto-increments after completion -> got=0xccddef00 expected=0xccddef00 -> PASS
+# [AES-SEC] REUSE_REJECT: same key/nonce/counter is rejected -> got=0x00000001 expected=0x00000001 -> PASS
+# [AES-SEC] REUSE_IDLE: rejected request does not start AES -> got=0x00000000 expected=0x00000000 -> PASS
+# [AES-SEC] ZEROIZE: all 128 key bits cleared -> got=0x00000001 expected=0x00000001 -> PASS
+# [AES-SEC] UNLOCK: zeroize returns interface to provisioning state -> got=0x00000000 expected=0x00000000 -> PASS
+# 
+# === CAN-IDS attack coverage and detection metrics ===
+# [CAN-METRIC] SPOOF: spoof signature detected -> got=0x00000001 expected=0x00000001 -> PASS
+# [CAN-METRIC] REPLAY: duplicate frame in replay window detected -> got=0x00000001 expected=0x00000001 -> PASS
+# [CAN-METRIC] FLOOD: short inter-frame interval detected -> got=0x00000001 expected=0x00000001 -> PASS
+# [CAN-METRIC] MODIFY: protected payload-field change detected -> got=0x00000001 expected=0x00000001 -> PASS
+# [CAN-METRIC] TP: four attack frames correctly detected -> got=0x00000004 expected=0x00000004 -> PASS
+# [CAN-METRIC] TN: three normal frames correctly accepted -> got=0x00000003 expected=0x00000003 -> PASS
+# [CAN-METRIC] FP: no normal frame falsely alerted -> got=0x00000000 expected=0x00000000 -> PASS
+# [CAN-METRIC] FN: no labeled attack was missed -> got=0x00000000 expected=0x00000000 -> PASS
+# [CAN-METRIC] CLASS_MATCH: all exact classes match ground truth -> got=0x00000007 expected=0x00000007 -> PASS
+# [CAN-METRIC] Detection rate = 100.00%
+# [CAN-METRIC] Precision      = 100.00%
+# [CAN-METRIC] Recall         = 100.00%
+# [CAN-METRIC] False-positive = 0.00%
+# 
+# === CAN-FD FIFO/DMA and SecOC integration tests ===
+# [CAN-FD] TX_FIFO: protected frame reached TX FIFO -> got=0x00000001 expected=0x00000001 -> PASS
+# [SECOC] AUTH_ACCEPT: valid MAC and freshness accepted -> got=0x00000001 expected=0x00000001 -> PASS
+# [CAN-FD] DMA_RECORD: one authenticated RX record completed -> got=0x00000001 expected=0x00000001 -> PASS
+# [CAN-FD] DMA_ID: DMA descriptor stores CAN identifier -> got=0x00000145 expected=0x00000145 -> PASS
+# [CAN-FD] DMA_FLAGS: DMA descriptor stores FD/BRS/DLC flags -> got=0x0000006f expected=0x0000006f -> PASS
+# [SECOC] DMA_FRESH: DMA descriptor stores freshness value -> got=0x00000001 expected=0x00000001 -> PASS
+# [CAN-FD] DMA_PAYLOAD: DMA record stores payload word zero -> got=0x12345678 expected=0x12345678 -> PASS
+# [CAN-IDS] AUTH_HANDOFF: authenticated FD frame reached IDS -> got=0x00000001 expected=0x00000001 -> PASS
+# [CAN-IDS] FD_DLC: legal FD DLC is classified normally -> got=0x00000001 expected=0x00000001 -> PASS
+# [INTC] CANFD_PENDING: CAN-FD/SecOC event captured in bit 5 -> got=0x00000020 expected=0x00000020 -> PASS
+# [INTC] CANFD_IRQ: enabled CAN-FD interrupt asserts IRQ line -> got=0x00000001 expected=0x00000001 -> PASS
+# [SECOC] REPLAY_REJECT: stale freshness is rejected -> got=0x00000001 expected=0x00000001 -> PASS
+# [SECOC] MAC_REJECT: incorrect MAC is rejected -> got=0x00000001 expected=0x00000001 -> PASS
+# [SECOC] NO_RELEASE: rejected frames do not increase accepts -> got=0x00000001 expected=0x00000001 -> PASS
+# [CAN-IDS] NO_UNTRUSTED_IDS: rejected frames never reach IDS -> got=0x00000001 expected=0x00000001 -> PASS
+# [CAN-FD] NO_UNTRUSTED_DMA: rejected frames never reach DMA -> got=0x00000001 expected=0x00000001 -> PASS
+# [SECOC] KEY_HIDE: locked SecOC key readback is zero -> got=0x00000000 expected=0x00000000 -> PASS
+# 
+# === Power/activity tests ===
+# [POWER] SLEEP: sleep control bit set -> got=0x00000001 expected=0x00000001 -> PASS
+# [POWER] COUNT: sleep cycles incremented -> got=0x00000001 expected=0x00000001 -> PASS
+# [POWER] DEBUG: activity debug output observable -> got=0x00000006 expected=0x00000006 -> PASS
+# 
+# === Custom security ISA tests ===
+# [CUSTOM] CSEC_XOR: rd = rs1 ^ rs2; 0x0f ^ 0x33 -> got=0x0000003c expected=0x0000003c -> PASS
+# [CUSTOM] STATUS0: second ROM pass observes CTR mode while AES is busy -> got=0x00000005 expected=0x00000005 -> PASS
+# [CUSTOM] START: custom instruction selected CTR mode -> got=0x00000001 expected=0x00000001 -> PASS
+# [CUSTOM] STATUS1: AES done after custom start -> got=0x00000006 expected=0x00000006 -> PASS
+# [CUSTOM] CT0: custom CT0 read returns plaintext XOR keystream -> got=0x70b4c555 expected=0x70b4c555 -> PASS
+# [CUSTOM] CLEAR: custom clear leaves mode set and done cleared -> got=0x00000004 expected=0x00000004 -> PASS
+# 
+# === Signal activity tests ===
+# [SIGNAL] stall_if: observed assertion count=1 -> PASS
+# [SIGNAL] flush_ifid: observed assertion count=1 -> PASS
+# [SIGNAL] aes_sel: observed assertion count=3 -> PASS
+# [SIGNAL] aes_write_en: observed assertion count=1 -> PASS
+# [SIGNAL] aes_read_en: observed assertion count=1 -> PASS
+# 
+# === Randomized coverage smoke tests ===
+# [RANDOM] CSEC_XOR: random rs1 ^ rs2 through custom ISA -> got=0x4a3d61a9 expected=0x4a3d61a9 -> PASS
+# [RANDOM] SENSOR: random sensor sample read through MMIO -> got=0x1457534e expected=0x1457534e -> PASS
+# [RANDOM] DMA: random word copied from randomized source to destination -> got=0x0caaed59 expected=0x0caaed59 -> PASS
+# [RANDOM] UART_DATA: random UART byte accepted through MMIO -> got=0x00000046 expected=0x00000046 -> PASS
+# [RANDOM] UART_DONE: random UART byte transmission completed -> got=0x00000001 expected=0x00000001 -> PASS
+# 
+# === Full-SoC CPU pipeline integration test ===
+# [FULL-SOC] CPU_PIPELINE: program reached completion marker through IF/ID/EX/MEM/WB -> got=0x00000055 expected=0x00000055 -> PASS
+# [FULL-SOC] SENSOR_READ: CPU read sensor sample through MMIO -> got=0x12345678 expected=0x12345678 -> PASS
+# [FULL-SOC] DMA_COPY: DMA copied CPU-stored sensor sample -> got=0x12345678 expected=0x12345678 -> PASS
+# [FULL-SOC] SPI_ACTIVITY: SPI transaction generated serial clock edges -> got=0x00000001 expected=0x00000001 -> PASS
+# [FULL-SOC] AES_CTR_CT0: AES-CTR encrypted sensor word -> got=0x62809322 expected=0x62809322 -> PASS
+# [FULL-SOC] UART_DATA: UART accepted AES ciphertext low byte -> got=0x00000022 expected=0x00000022 -> PASS
+# [FULL-SOC] UART_DONE: UART ciphertext transmission completed -> got=0x00000001 expected=0x00000001 -> PASS
+# [FULL-SOC] CAN_IDS: spoofed engine frame classified and alerted -> got=0x00000077 expected=0x00000077 -> PASS
+# [FULL-SOC] CAN_IDS_DEBUG: CAN intrusion alert exposed at top level -> got=0x00000001 expected=0x00000001 -> PASS
+# [FULL-SOC] IRQ_PENDING: AES/UART/sensor/DMA/IDS pending bits captured -> got=0x0000001f expected=0x0000001f -> PASS
+# [FULL-SOC] IRQ_LINE: combined enabled interrupt line asserted -> got=0x00000001 expected=0x00000001 -> PASS
+# [FULL-SOC] AES_ACTIVITY: CPU-observed AES active counter is nonzero -> got=0x00000001 expected=0x00000001 -> PASS
+# [FULL-SOC] UART_ACTIVITY: CPU-observed UART active counter is nonzero -> got=0x00000001 expected=0x00000001 -> PASS
+# [FULL-SOC] DMA_ACTIVITY: CPU-observed DMA active counter is nonzero -> got=0x00000001 expected=0x00000001 -> PASS
+# [FULL-SOC] SENSOR_ACTIVITY: CPU-observed sensor active counter is nonzero -> got=0x00000001 expected=0x00000001 -> PASS
+# [FULL-SOC] CAN_IDS_ACTIVITY: CPU-observed IDS activity counter is nonzero -> got=0x00000001 expected=0x00000001 -> PASS
+# [FULL-SOC] SLEEP: CPU requested low-power sleep after transmission -> got=0x00000001 expected=0x00000001 -> PASS
+# [FULL-SOC] SLEEP_CYCLES: sleep activity counter incremented -> got=0x00000001 expected=0x00000001 -> PASS
+# 
+# ================================================
+# RV32I-style directed verification summary: PASS=161 FAIL=0
+# Lightweight IoT Security Processor + Custom ISA verification summary: PASS=161 FAIL=0
+# ================================================
+# 
+# ALL TESTS PASSED
+# ** Note: $finish    : D:/mtech/sem 4/midesm presetation/riscv_aes_advancements/risc_aes_custom_ISA/journal_report_can_ids/github_full_validation_20261003/Testbench/riscv_core_tb.sv(2015)
+#    Time: 197875 ns  Iteration: 0  Instance: /riscv_core_tb
+# End time: 19:28:23 on Oct 03,2026, Elapsed time: 0:00:36
+# Errors: 0, Warnings: 0

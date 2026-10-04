@@ -340,25 +340,29 @@ def generate_hierarchy():
     for x, y, title, address, detail in tiles:
         add_box(ax, (x, y), (1.35, 0.58), title, f"{address} | {detail}", face="#f9fbf7", edge="#516b3a")
 
-    ax.text(0.55, 1.78, "Authenticated receive path", fontsize=9.0, weight="bold", color="#334e68")
-    path_boxes = [
-        (0.55, "1", "CAN-FD/SecOC", "MAC + freshness"),
-        (3.00, "2", "CAN-IDS", "trusted features"),
-        (5.05, "3", "DMA + memory", "accepted record"),
-        (7.15, "4", "Interrupts", "SecOC / IDS flags"),
-    ]
-    for x, step, title, detail in path_boxes:
-        add_box(ax, (x, 0.92), (1.65, 0.62), f"{step}. {title}", detail, face="#fffaf2", edge="#8a5a25")
-    for start, end, label in [
-        ((2.20, 1.23), (3.00, 1.23), "release"),
-        ((4.65, 1.23), (5.05, 1.23), "write"),
-        ((6.70, 1.23), (7.15, 1.23), "notify"),
+    ax.text(0.55, 2.15, "Security-enabled receive fan-out", fontsize=9.0, weight="bold", color="#334e68")
+    for xy, title, detail in [
+        ((0.55, 1.03), "CAN-FD/SecOC", "MAC + freshness"),
+        ((3.25, 1.46), "CAN-IDS", "trusted features"),
+        ((3.25, 0.58), "RX DMA + memory", "accepted record"),
+        ((7.15, 1.03), "Interrupt Ctrl", "IRQ bits 4 and 5"),
     ]:
-        add_arrow(ax, start, end, label, label_offset=0.05, color="#8a5a25")
+        add_box(ax, xy, (1.65, 0.62), title, detail, face="#fffaf2", edge="#8a5a25")
+    color = "#8a5a25"
+    ax.plot([2.20, 2.65, 2.65], [1.34, 1.34, 1.77], color=color, linewidth=1)
+    ax.plot([2.65, 2.65], [1.34, 0.89], color=color, linewidth=1)
+    add_arrow(ax, (2.65, 1.77), (3.25, 1.77), color=color)
+    add_arrow(ax, (2.65, 0.89), (3.25, 0.89), color=color)
+    ax.plot([4.90, 6.40, 6.40], [1.77, 1.77, 1.34], color=color, linewidth=1)
+    add_arrow(ax, (6.40, 1.34), (7.15, 1.34), color=color)
+    ax.text(5.40, 1.87, "IDS alert (bit 4)", fontsize=7.5, color=color)
+    ax.plot([1.375, 1.375, 7.975], [1.03, 0.30, 0.30], color=color, linewidth=1)
+    add_arrow(ax, (7.975, 0.30), (7.975, 1.03), color=color)
+    ax.text(5.50, 0.36, "SecOC / DMA event (bit 5)", fontsize=7.5, color=color)
 
     ax.text(
         0.6,
-        0.35,
+        0.03,
         "Project-generated from current RTL module names and MMIO map. External CAN-FD MAC/PHY is outside this integration view.",
         fontsize=8.4,
         color="#334e68",

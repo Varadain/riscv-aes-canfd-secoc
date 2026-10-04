@@ -1,0 +1,17 @@
+Analysis & Synthesis Status : Successful - Sat Oct  3 19:25:20 2026
+Quartus Prime Version : 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+Revision Name : riscv_aes_advancements
+Top-level Entity Name : riscv_aes_advancements
+Family : Cyclone V
+Logic utilization (in ALMs) : N/A
+Total registers : 20996
+Total pins : 107
+Total virtual pins : 0
+Total block memory bits : 0
+Total DSP Blocks : 0
+Total HSSI RX PCSs : 0
+Total HSSI PMA RX Deserializers : 0
+Total HSSI TX PCSs : 0
+Total HSSI PMA TX Serializers : 0
+Total PLLs : 0
+Total DLLs : 0

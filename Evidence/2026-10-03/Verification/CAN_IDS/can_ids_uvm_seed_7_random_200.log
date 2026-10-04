@@ -1,0 +1,68 @@
+# vsim -c -sv_seed 7 -l D:\mtech\sem 4\midesm presetation\riscv_aes_advancements\risc_aes_custom_ISA\journal_report_can_ids\github_full_validation_20261003\Build\Questa\CAN_IDS\can_ids_uvm_seed_7_random_200.log work.can_ids_uvm_tb_top -do "run -all; quit" "+UVM_TESTNAME=can_ids_uvm_test" "+UVM_VERBOSITY=UVM_NONE" "+RANDOM_TXNS=200" 
+# Start time: 19:21:13 on Oct 03,2026
+# ** Note: (vsim-3812) Design is being optimized...
+# //  Questa Intel Starter FPGA Edition-64
+# //  Version 2023.3 win64 Jul 17 2023
+# //
+# //  Copyright 1991-2023 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.can_ids_uvm_if(fast)
+# Loading mtiUvm.uvm_pkg(fast)
+# Loading work.can_ids_uvm_pkg(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading work.can_ids_uvm_tb_top(fast)
+# Loading C:/intelFPGA_lite/questa_fse/uvm-1.1d\win64\uvm_dpi.dll
+# run -all
+# ----------------------------------------------------------------
+# UVM-1.1d
+# (C) 2007-2013 Mentor Graphics Corporation
+# (C) 2007-2013 Cadence Design Systems, Inc.
+# (C) 2006-2013 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO D:\mtech\sem 4\midesm presetation\riscv_aes_advancements\risc_aes_custom_ISA\journal_report_can_ids\github_full_validation_20261003\UVM\CAN_IDS\can_ids_uvm_pkg.sv(941) @ 5020000: uvm_test_top [RANDOM_CFG] Starting 200 constrained-random CAN-IDS transactions
+# UVM_INFO D:\mtech\sem 4\midesm presetation\riscv_aes_advancements\risc_aes_custom_ISA\journal_report_can_ids\github_full_validation_20261003\UVM\CAN_IDS\can_ids_uvm_pkg.sv(871) @ 284640000: uvm_test_top.env.coverage [FUNC_COV] Portable CAN-IDS functional coverage: 100.00% (38/38 bins) from 209 transactions
+# UVM_INFO D:\mtech\sem 4\midesm presetation\riscv_aes_advancements\risc_aes_custom_ISA\journal_report_can_ids\github_full_validation_20261003\UVM\CAN_IDS\can_ids_uvm_pkg.sv(875) @ 284640000: uvm_test_top.env.coverage [SVA_SUMMARY] Concurrent assertions=4 failures=0 submit attempts=209 active attempts=209 attack-alert cover hits=208
+# UVM_INFO D:\mtech\sem 4\midesm presetation\riscv_aes_advancements\risc_aes_custom_ISA\journal_report_can_ids\github_full_validation_20261003\UVM\CAN_IDS\can_ids_uvm_pkg.sv(671) @ 284640000: uvm_test_top.env.scoreboard [CAN_IDS_METRICS] Detection rate=100.00% Precision=100.00% False-positive rate=0.00% TP=146 TN=63 FP=0 FN=0
+# UVM_INFO D:\mtech\sem 4\midesm presetation\riscv_aes_advancements\risc_aes_custom_ISA\journal_report_can_ids\github_full_validation_20261003\UVM\CAN_IDS\can_ids_uvm_pkg.sv(676) @ 284640000: uvm_test_top.env.scoreboard [RANDOM_SUMMARY] Constrained-random CAN-IDS transactions=200 total transactions=209 scoreboard mismatches=0
+# 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :    5
+# UVM_WARNING :    0
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [CAN_IDS_METRICS]     1
+# [FUNC_COV]     1
+# [RANDOM_CFG]     1
+# [RANDOM_SUMMARY]     1
+# [SVA_SUMMARY]     1
+# ** Note: $finish    : C:/intelFPGA_lite/questa_fse/win64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
+#    Time: 284640 ns  Iteration: 55  Instance: /can_ids_uvm_tb_top
+# End time: 19:21:21 on Oct 03,2026, Elapsed time: 0:00:08
+# Errors: 0, Warnings: 0

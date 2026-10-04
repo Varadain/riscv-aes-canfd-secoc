@@ -23,5 +23,6 @@ transcript
 *.pof
 *.rbf
 IP/sensor_spi_ip/
+FPGA/Quartus/c5_pin_model_dump.txt
 !Evidence/
 !Evidence/**

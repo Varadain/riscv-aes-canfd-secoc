@@ -1,6 +1,6 @@
 # Recorded results and interpretation
 
-The evidence in this repository was recorded on 16 July 2026. Folder reorganization does not rerun synthesis, change RTL behavior, or replace these observations.
+The latest complete campaign was rerun from a fresh checkout on 3 October 2026. Its evidence is in `Evidence/2026-10-03/`; see [the validation record](FRESH_VALIDATION_20261003.md). The older July archive remains unchanged. The independently rerun FPGA and five-seed results reproduced the values below.
 
 The v1.1.0 layout was checked separately with seed 1 in each focused UVM environment: CAN-IDS passed 209 transactions with 38/38 bins; CAN-FD/SecOC passed 46 transactions with 16/16 bins. Both reported zero scoreboard mismatches, assertion failures, UVM errors, and UVM fatals. Those local checks use the relocated runners and included shared C reference; their outputs remain under ignored `Build/` paths, separate from the archived evidence.
 
@@ -20,7 +20,7 @@ The v1.1.0 layout was checked separately with seed 1 in each focused UVM environ
 | Worst setup and hold | 2.429 ns and 0.144 ns |
 | Vectorless power | 582.88 mW, low confidence |
 
-The verification logs and per-seed CSV files are in `Evidence/Verification/`. The Quartus reports are in `Evidence/Quartus/`, original execution logs in `Evidence/Logs/`, and the receive/DMA waveform source in `Evidence/Waveforms/`.
+For the latest run, verification logs and per-seed CSV files are in `Evidence/2026-10-03/Verification/`, Quartus reports in `Evidence/2026-10-03/Quartus/`, stage logs in `Evidence/2026-10-03/Logs/`, and the waveform in `Evidence/2026-10-03/Waveforms/`. `RUN_SUMMARY.json` and `PROVENANCE.json` record the tested source commit and dependency hashes.
 
 The fitted design leaves FPGA logic capacity for further integration, but exact board pins, external timing, a CAN-FD protocol core, and hardware validation are still required. Wide register-based memory and frame buffers are practical targets for later RAM-based optimization.
 

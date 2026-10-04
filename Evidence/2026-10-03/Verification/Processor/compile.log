@@ -1,0 +1,43 @@
+Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+Start time: 19:39:54 on Oct 03,2026
+vlog -sv "+define+SIMULATION" -l compile.log D:\mtech\sem 4\midesm presetation\riscv_aes_advancements\risc_aes_custom_ISA\journal_report_can_ids\github_full_validation_20261003\RTL\Top\riscv_aes_advancements.sv D:\mtech\sem 4\midesm presetation\riscv_aes_advancements\risc_aes_custom_ISA\journal_report_can_ids\github_full_validation_20261003\RTL\CPU\pc_reg.sv D:\mtech\sem 4\midesm presetation\riscv_aes_advancements\risc_aes_custom_ISA\journal_report_can_ids\github_full_validation_20261003\RTL\CPU\if_stage.sv D:\mtech\sem 4\midesm presetation\riscv_aes_advancements\risc_aes_custom_ISA\journal_report_can_ids\github_full_validation_20261003\RTL\CPU\instr_mem.sv D:\mtech\sem 4\midesm presetation\riscv_aes_advancements\risc_aes_custom_ISA\journal_report_can_ids\github_full_validation_20261003\RTL\CPU\id_stage.sv D:\mtech\sem 4\midesm presetation\riscv_aes_advancements\risc_aes_custom_ISA\journal_report_can_ids\github_full_validation_20261003\RTL\CPU\reg_file.sv D:\mtech\sem 4\midesm presetation\riscv_aes_advancements\risc_aes_custom_ISA\journal_report_can_ids\github_full_validation_20261003\RTL\CPU\imm_gen.sv D:\mtech\sem 4\midesm presetation\riscv_aes_advancements\risc_aes_custom_ISA\journal_report_can_ids\github_full_validation_20261003\RTL\CPU\control_unit.sv D:\mtech\sem 4\midesm presetation\riscv_aes_advancements\risc_aes_custom_ISA\journal_report_can_ids\github_full_validation_20261003\RTL\CPU\hazard_unit.sv D:\mtech\sem 4\midesm presetation\riscv_aes_advancements\risc_aes_custom_ISA\journal_report_can_ids\github_full_validation_20261003\RTL\CPU\forwarding_unit.sv D:\mtech\sem 4\midesm presetation\riscv_aes_advancements\risc_aes_custom_ISA\journal_report_can_ids\github_full_validation_20261003\RTL\CPU\ex_stage.sv D:\mtech\sem 4\midesm presetation\riscv_aes_advancements\risc_aes_custom_ISA\journal_report_can_ids\github_full_validation_20261003\RTL\CPU\alu.sv D:\mtech\sem 4\midesm presetation\riscv_aes_advancements\risc_aes_custom_ISA\journal_report_can_ids\github_full_validation_20261003\RTL\CPU\mem_stage.sv D:\mtech\sem 4\midesm presetation\riscv_aes_advancements\risc_aes_custom_ISA\journal_report_can_ids\github_full_validation_20261003\RTL\CPU\load_store_unit.sv D:\mtech\sem 4\midesm presetation\riscv_aes_advancements\risc_aes_custom_ISA\journal_report_can_ids\github_full_validation_20261003\RTL\CPU\data_mem.sv D:\mtech\sem 4\midesm presetation\riscv_aes_advancements\risc_aes_custom_ISA\journal_report_can_ids\github_full_validation_20261003\RTL\AES\aes_mmio.sv D:\mtech\sem 4\midesm presetation\riscv_aes_advancements\risc_aes_custom_ISA\journal_report_can_ids\github_full_validation_20261003\RTL\AES\Reusable\00_aes128_top.sv D:\mtech\sem 4\midesm presetation\riscv_aes_advancements\risc_aes_custom_ISA\journal_report_can_ids\github_full_validation_20261003\RTL\AES\Reusable\01_aes_sbox_rom.sv D:\mtech\sem 4\midesm presetation\riscv_aes_advancements\risc_aes_custom_ISA\journal_report_can_ids\github_full_validation_20261003\RTL\AES\Reusable\02_aes_sbox_seq.sv D:\mtech\sem 4\midesm presetation\riscv_aes_advancements\risc_aes_custom_ISA\journal_report_can_ids\github_full_validation_20261003\RTL\AES\Reusable\03_aes_mix_columns_seq.sv D:\mtech\sem 4\midesm presetation\riscv_aes_advancements\risc_aes_custom_ISA\journal_report_can_ids\github_full_validation_20261003\RTL\AES\Reusable\04_aes_key_expand_seq.sv D:\mtech\sem 4\midesm presetation\riscv_aes_advancements\risc_aes_custom_ISA\journal_report_can_ids\github_full_validation_20261003\RTL\AES\aes128_lowpower.sv D:\mtech\sem 4\midesm presetation\riscv_aes_advancements\risc_aes_custom_ISA\journal_report_can_ids\github_full_validation_20261003\RTL\Peripherals\uart_tx.sv D:\mtech\sem 4\midesm presetation\riscv_aes_advancements\risc_aes_custom_ISA\journal_report_can_ids\github_full_validation_20261003\RTL\Peripherals\uart_mmio.sv D:\mtech\sem 4\midesm presetation\riscv_aes_advancements\risc_aes_custom_ISA\journal_report_can_ids\github_full_validation_20261003\RTL\Peripherals\sensor_mmio.sv D:\mtech\sem 4\midesm presetation\riscv_aes_advancements\risc_aes_custom_ISA\journal_report_can_ids\github_full_validation_20261003\RTL\Peripherals\sensor_spi_mmio.sv D:\mtech\sem 4\midesm presetation\riscv_aes_advancements\risc_aes_custom_ISA\journal_report_can_ids\github_full_validation_20261003\RTL\Peripherals\simple_intc.sv D:\mtech\sem 4\midesm presetation\riscv_aes_advancements\risc_aes_custom_ISA\journal_report_can_ids\github_full_validation_20261003\RTL\Peripherals\dma_lite.sv D:\mtech\sem 4\midesm presetation\riscv_aes_advancements\risc_aes_custom_ISA\journal_report_can_ids\github_full_validation_20261003\RTL\CAN\canfd_secoc_mmio.sv D:\mtech\sem 4\midesm presetation\riscv_aes_advancements\risc_aes_custom_ISA\journal_report_can_ids\github_full_validation_20261003\RTL\CAN\can_ids_mmio.sv D:\mtech\sem 4\midesm presetation\riscv_aes_advancements\risc_aes_custom_ISA\journal_report_can_ids\github_full_validation_20261003\RTL\Peripherals\power_mgmt_mmio.sv D:\mtech\sem 4\midesm presetation\riscv_aes_advancements\risc_aes_custom_ISA\journal_report_can_ids\github_full_validation_20261003\RTL\CPU\wb_stage.sv D:\mtech\sem 4\midesm presetation\riscv_aes_advancements\risc_aes_custom_ISA\journal_report_can_ids\github_full_validation_20261003\IP\sensor_spi_ip\sensor_spi_ip.v D:\mtech\sem 4\midesm presetation\riscv_aes_advancements\risc_aes_custom_ISA\journal_report_can_ids\github_full_validation_20261003\Testbench\riscv_core_tb.sv 
+-- Compiling module riscv_aes_advancements
+-- Compiling module pc_reg
+-- Compiling module if_stage
+-- Compiling module instr_mem
+-- Compiling module id_stage
+-- Compiling module reg_file
+-- Compiling module imm_gen
+-- Compiling module control_unit
+-- Compiling module hazard_unit
+-- Compiling module forwarding_unit
+-- Compiling module ex_stage
+-- Compiling module alu
+-- Compiling module mem_stage
+-- Compiling module load_store_unit
+-- Compiling module data_mem
+-- Compiling module aes_mmio
+-- Compiling module AES128_updated_new
+-- Compiling module AES_SBOX_ROM
+-- Compiling module AES_SBOX_SEQ
+-- Compiling module AES_MIXCOL_SEQ
+-- Compiling module AES_KEYEXP_SEQ
+-- Compiling module aes128_lowpower
+-- Compiling module uart_tx
+-- Compiling module uart_mmio
+-- Compiling module sensor_mmio
+-- Compiling module sensor_spi_mmio
+-- Compiling module simple_intc
+-- Compiling module dma_lite
+-- Compiling module canfd_secoc_mmio
+-- Compiling module can_ids_mmio
+-- Compiling module power_mgmt_mmio
+-- Compiling module wb_stage
+-- Compiling module sensor_spi_ip
+-- Compiling module riscv_core_tb
+
+Top level modules:
+	sensor_mmio
+	riscv_core_tb
+End time: 19:39:54 on Oct 03,2026, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0

@@ -1,0 +1,15 @@
+CAN-IDS UVM constrained-random regression
+Seeds=1,7,19,42,99
+DirectedPerSeed=9
+RandomizedPerSeed=200
+TotalRandomized=1000
+TotalTransactions=1045
+MinimumPortableCoverage=100.00%
+CoverageBins=38/38 per seed
+ConcurrentAssertions=4
+AssertionFailures=0
+AggregateTP=740
+AggregateTN=305
+AggregateFP=0
+AggregateFN=0
+CSV=can_ids_uvm_randomized_regression.csv

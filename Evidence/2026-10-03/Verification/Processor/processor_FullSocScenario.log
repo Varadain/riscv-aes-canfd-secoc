@@ -1,0 +1,95 @@
+# vsim -c -t 1ps -voptargs="+acc" -l D:\mtech\sem 4\midesm presetation\riscv_aes_advancements\risc_aes_custom_ISA\journal_report_can_ids\github_full_validation_20261003\Build\Questa\Processor\processor_FullSocScenario.log work.riscv_core_tb "+FULL_SOC_SCENARIO_ONLY" -do "run -all; quit -f" 
+# Start time: 19:28:51 on Oct 03,2026
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# //  Questa Intel Starter FPGA Edition-64
+# //  Version 2023.3 win64 Jul 17 2023
+# //
+# //  Copyright 1991-2023 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.riscv_core_tb(fast)
+# Loading work.riscv_aes_advancements(fast)
+# Loading work.pc_reg(fast)
+# Loading work.if_stage(fast)
+# Loading work.instr_mem(fast)
+# Loading work.id_stage(fast)
+# Loading work.reg_file(fast)
+# Loading work.imm_gen(fast)
+# Loading work.control_unit(fast)
+# Loading work.hazard_unit(fast)
+# Loading work.forwarding_unit(fast)
+# Loading work.ex_stage(fast)
+# Loading work.alu(fast)
+# Loading work.mem_stage(fast)
+# Loading work.load_store_unit(fast)
+# Loading work.data_mem(fast)
+# Loading work.aes_mmio(fast)
+# Loading work.aes128_lowpower(fast)
+# Loading work.AES128_updated_new(fast)
+# Loading work.AES_SBOX_SEQ(fast)
+# Loading work.AES_SBOX_ROM(fast)
+# Loading work.AES_MIXCOL_SEQ(fast)
+# Loading work.AES_KEYEXP_SEQ(fast)
+# Loading work.sensor_spi_mmio(fast)
+# Loading work.sensor_spi_ip(fast)
+# Loading work.uart_mmio(fast)
+# Loading work.uart_tx(fast)
+# Loading work.simple_intc(fast)
+# Loading work.dma_lite(fast)
+# Loading work.canfd_secoc_mmio(fast)
+# Loading work.aes128_lowpower(fast__1)
+# Loading work.AES128_updated_new(fast__1)
+# Loading work.can_ids_mmio(fast)
+# Loading work.power_mgmt_mmio(fast)
+# Loading work.wb_stage(fast)
+# Loading work.can_ids_mmio(fast__1)
+# Loading work.aes_mmio(fast__1)
+# Loading work.mem_stage(fast__1)
+# Loading work.aes_mmio(fast__2)
+# Loading work.sensor_spi_mmio(fast__1)
+# Loading work.uart_mmio(fast__1)
+# Loading work.dma_lite(fast__1)
+# Loading work.power_mgmt_mmio(fast__1)
+# run -all
+# 
+# Running standalone scenario: Secure Health-Monitoring IoT transaction
+# 
+# === Full-SoC CPU pipeline integration test ===
+# [FULL-SOC] CPU_PIPELINE: program reached completion marker through IF/ID/EX/MEM/WB -> got=0x00000055 expected=0x00000055 -> PASS
+# [FULL-SOC] SENSOR_READ: CPU read sensor sample through MMIO -> got=0x12345678 expected=0x12345678 -> PASS
+# [FULL-SOC] DMA_COPY: DMA copied CPU-stored sensor sample -> got=0x12345678 expected=0x12345678 -> PASS
+# [FULL-SOC] SPI_ACTIVITY: SPI transaction generated serial clock edges -> got=0x00000001 expected=0x00000001 -> PASS
+# [FULL-SOC] AES_CTR_CT0: AES-CTR encrypted sensor word -> got=0x62809322 expected=0x62809322 -> PASS
+# [FULL-SOC] UART_DATA: UART accepted AES ciphertext low byte -> got=0x00000022 expected=0x00000022 -> PASS
+# [FULL-SOC] UART_DONE: UART ciphertext transmission completed -> got=0x00000001 expected=0x00000001 -> PASS
+# [FULL-SOC] CAN_IDS: spoofed engine frame classified and alerted -> got=0x00000077 expected=0x00000077 -> PASS
+# [FULL-SOC] CAN_IDS_DEBUG: CAN intrusion alert exposed at top level -> got=0x00000001 expected=0x00000001 -> PASS
+# [FULL-SOC] IRQ_PENDING: AES/UART/sensor/DMA/IDS pending bits captured -> got=0x0000001f expected=0x0000001f -> PASS
+# [FULL-SOC] IRQ_LINE: combined enabled interrupt line asserted -> got=0x00000001 expected=0x00000001 -> PASS
+# [FULL-SOC] AES_ACTIVITY: CPU-observed AES active counter is nonzero -> got=0x00000001 expected=0x00000001 -> PASS
+# [FULL-SOC] UART_ACTIVITY: CPU-observed UART active counter is nonzero -> got=0x00000001 expected=0x00000001 -> PASS
+# [FULL-SOC] DMA_ACTIVITY: CPU-observed DMA active counter is nonzero -> got=0x00000001 expected=0x00000001 -> PASS
+# [FULL-SOC] SENSOR_ACTIVITY: CPU-observed sensor active counter is nonzero -> got=0x00000001 expected=0x00000001 -> PASS
+# [FULL-SOC] CAN_IDS_ACTIVITY: CPU-observed IDS activity counter is nonzero -> got=0x00000001 expected=0x00000001 -> PASS
+# [FULL-SOC] SLEEP: CPU requested low-power sleep after transmission -> got=0x00000001 expected=0x00000001 -> PASS
+# [FULL-SOC] SLEEP_CYCLES: sleep activity counter incremented -> got=0x00000001 expected=0x00000001 -> PASS
+# 
+# ================================================
+# RV32I-style directed verification summary: PASS=18 FAIL=0
+# Lightweight IoT Security Processor + Custom ISA verification summary: PASS=18 FAIL=0
+# ================================================
+# 
+# ALL TESTS PASSED
+# ** Note: $finish    : D:/mtech/sem 4/midesm presetation/riscv_aes_advancements/risc_aes_custom_ISA/journal_report_can_ids/github_full_validation_20261003/Testbench/riscv_core_tb.sv(2015)
+#    Time: 45175 ns  Iteration: 0  Instance: /riscv_core_tb
+# End time: 19:29:03 on Oct 03,2026, Elapsed time: 0:00:12
+# Errors: 0, Warnings: 0

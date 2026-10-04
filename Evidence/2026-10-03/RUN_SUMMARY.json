@@ -1,0 +1,193 @@
+{
+  "source_release": "v1.1.0",
+  "source_commit": "e31227ddf8db7af6dcc089848dd589938981cbe0",
+  "run_date": "2026-10-03",
+  "archived_at_utc": "2026-10-03T14:32:37.460152+00:00",
+  "questa_version": "2023.3",
+  "uvm_library": "1.1d",
+  "native_covergroups": false,
+  "class_constraint_solver": false,
+  "uvm": {
+    "CAN_IDS": {
+      "Total": 1045,
+      "Randomized": 1000,
+      "TP": 740,
+      "TN": 305,
+      "FP": 0,
+      "FN": 0,
+      "seeds": [
+        1,
+        7,
+        19,
+        42,
+        99
+      ],
+      "bins_per_seed": 38,
+      "assertions": 4,
+      "assertion_failures": 0
+    },
+    "CANFD_SecOC": {
+      "Total": 230,
+      "Randomized": 200,
+      "Accepted": 117,
+      "AuthFail": 56,
+      "FreshFail": 57,
+      "Mismatches": 0,
+      "seeds": [
+        1,
+        7,
+        19,
+        42,
+        99
+      ],
+      "bins_per_seed": 16,
+      "assertions": 5,
+      "assertion_failures": 0
+    }
+  },
+  "processor": {
+    "All": {
+      "pass": 161,
+      "fail": 0
+    },
+    "SecurityExtension": {
+      "pass": 36,
+      "fail": 0
+    },
+    "CanFdSecoc": {
+      "pass": 17,
+      "fail": 0
+    },
+    "FullSocScenario": {
+      "pass": 18,
+      "fail": 0
+    }
+  },
+  "quartus": {
+    "version": "23.1std.1 Build 993 05/14/2024 SC Lite Edition",
+    "device": "5CGXFC7C7F23C8",
+    "family": "Cyclone V",
+    "alms": 22261,
+    "registers": 22113,
+    "pins": 107,
+    "fmax_mhz": 56.91,
+    "target_mhz": 50,
+    "timing": [
+      {
+        "check": "Slow 1100mV 85C Model Setup 'clk'",
+        "slack_ns": 2.429,
+        "tns_ns": 0.0
+      },
+      {
+        "check": "Slow 1100mV 85C Model Hold 'clk'",
+        "slack_ns": 0.343,
+        "tns_ns": 0.0
+      },
+      {
+        "check": "Slow 1100mV 85C Model Minimum Pulse Width 'clk'",
+        "slack_ns": 9.19,
+        "tns_ns": 0.0
+      },
+      {
+        "check": "Slow 1100mV 0C Model Setup 'clk'",
+        "slack_ns": 2.71,
+        "tns_ns": 0.0
+      },
+      {
+        "check": "Slow 1100mV 0C Model Hold 'clk'",
+        "slack_ns": 0.339,
+        "tns_ns": 0.0
+      },
+      {
+        "check": "Slow 1100mV 0C Model Minimum Pulse Width 'clk'",
+        "slack_ns": 9.041,
+        "tns_ns": 0.0
+      },
+      {
+        "check": "Fast 1100mV 85C Model Setup 'clk'",
+        "slack_ns": 10.927,
+        "tns_ns": 0.0
+      },
+      {
+        "check": "Fast 1100mV 85C Model Hold 'clk'",
+        "slack_ns": 0.159,
+        "tns_ns": 0.0
+      },
+      {
+        "check": "Fast 1100mV 85C Model Minimum Pulse Width 'clk'",
+        "slack_ns": 9.406,
+        "tns_ns": 0.0
+      },
+      {
+        "check": "Fast 1100mV 0C Model Setup 'clk'",
+        "slack_ns": 11.985,
+        "tns_ns": 0.0
+      },
+      {
+        "check": "Fast 1100mV 0C Model Hold 'clk'",
+        "slack_ns": 0.144,
+        "tns_ns": 0.0
+      },
+      {
+        "check": "Fast 1100mV 0C Model Minimum Pulse Width 'clk'",
+        "slack_ns": 9.409,
+        "tns_ns": 0.0
+      }
+    ],
+    "hierarchy": {
+      "riscv_aes_advancements": {
+        "alms": 22260.4,
+        "registers": 22113
+      },
+      "aes_mmio": {
+        "alms": 1129.2,
+        "registers": 1731
+      },
+      "can_ids_mmio": {
+        "alms": 912.7,
+        "registers": 1215
+      },
+      "canfd_secoc_mmio": {
+        "alms": 6419.3,
+        "registers": 9427
+      },
+      "data_mem": {
+        "alms": 8697.4,
+        "registers": 8192
+      }
+    },
+    "flow": {
+      "map": {
+        "errors": 0,
+        "warnings": 0,
+        "tool": "Analysis & Synthesis"
+      },
+      "fit": {
+        "errors": 0,
+        "warnings": 3,
+        "tool": "Fitter"
+      },
+      "asm": {
+        "errors": 0,
+        "warnings": 0,
+        "tool": "Assembler"
+      },
+      "sta": {
+        "errors": 0,
+        "warnings": 0,
+        "tool": "Timing Analyzer"
+      },
+      "pow": {
+        "errors": 0,
+        "warnings": 1,
+        "tool": "Power Analyzer"
+      }
+    },
+    "thermal_mw": 582.88,
+    "dynamic_mw": 211.24,
+    "static_mw": 350.9,
+    "io_mw": 20.74,
+    "power_confidence": "Low: user provided insufficient toggle rate data",
+    "activity_file_supplied": false
+  }
+}
